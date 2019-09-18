@@ -1,0 +1,25 @@
+{
+    "instanceIdentifier": "PLACEHOLDER-INSTANCE-PRODUCTION",
+    "members": 456,
+    "subsystems": 789,
+    "securityServers": 123,
+    "memberClasses": [
+        {
+            "memberClass": "GOV",
+            "memberCount": 40
+        },
+        {
+            "memberClass": "COM",
+            "memberCount": 45
+        },
+        {
+            "memberClass": "NGO",
+            "memberCount": 20
+        },
+        {
+            "memberClass": "NEE",
+            "memberCount": 10
+        }
+    ],
+    "date": "yyyy-mm-dd"
+}

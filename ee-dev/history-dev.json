@@ -1,0 +1,77 @@
+[
+    {
+        "memberClasses": [
+            {
+                "memberClass": "GOV",
+                "memberCount": 150
+            },
+            {
+                "memberClass": "COM",
+                "memberCount": 150
+            },
+            {
+                "memberClass": "NGO",
+                "memberCount": 150
+            },
+            {
+                "memberClass": "NEE",
+                "memberCount": 150
+            }
+        ],
+        "instanceIdentifier": "PLACEHOLDER-INSTANCE-DEV",
+        "date": "2019-01-01",
+        "subsystems": 150,
+        "securityServers": 150,
+        "members": 150
+    },
+    {
+        "memberClasses": [
+            {
+                "memberClass": "GOV",
+                "memberCount": 150
+            },
+            {
+                "memberClass": "COM",
+                "memberCount": 150
+            },
+            {
+                "memberClass": "NGO",
+                "memberCount": 150
+            },
+            {
+                "memberClass": "NEE",
+                "memberCount": 150
+            }
+        ],
+        "instanceIdentifier": "PLACEHOLDER-INSTANCE-DEV",
+        "date": "2019-02-01",
+        "subsystems": 200,
+        "securityServers": 200,
+        "members": 200
+    },
+    {
+        "memberClasses": [
+            {
+                "memberClass": "GOV",
+                "memberCount": 150
+            },
+            {
+                "memberClass": "COM",
+                "memberCount": 150
+            },
+            {
+                "memberClass": "NGO",
+                "memberCount": 150
+            },
+            {
+                "memberClass": "NEE",
+                "memberCount": 150
+            }
+        ],
+        "instanceIdentifier": "PLACEHOLDER-INSTANCE-DEV",
+        "date": "2019-03-01",
+        "subsystems": 225,
+        "securityServers": 225,
+        "members": 225
+    }
+]
