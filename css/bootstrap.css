@@ -10046,6 +10046,25 @@ a.text-dark:hover, a.text-dark:focus {
   right: 0px;
   z-index: 1;
   display:block;
+  
+}
+
+.btn-env{
+  float: left;
+
+  margin: 2px;
+  margin-top: 10px;
+  position: sticky;
+  top: 5px;
+  right: 0px;
+  z-index: 1;
+  display:block;
+  width: 80px;
+}
+.isActive{
+  color: #fff;
+  background-color: #3075b5;
+  border-color: #3075b5;
 }
 
 #titleRow{

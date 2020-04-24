@@ -11,8 +11,25 @@ function generateMembersDoughnutGraph(resultsJson) {
             return parseFloat(b.memberCount) - parseFloat(a.memberCount);
         })
         for (let i in sortedMemberClasses) {
-            memberClassLabels.push(sortedMemberClasses[i].memberClass);
-            memberClassData.push(sortedMemberClasses[i].memberCount);
+            switch(sortedMemberClasses[i].memberClass){
+                case "COM":
+                    memberClassLabels.push("Commercial member");
+                    memberClassData.push(sortedMemberClasses[i].memberCount);
+                    break;
+                case "GOV":
+                    memberClassLabels.push("Governmental member");
+                    memberClassData.push(sortedMemberClasses[i].memberCount);
+                    break;
+                case "NGO":
+                    memberClassLabels.push("Non-profit member");
+                    memberClassData.push(sortedMemberClasses[i].memberCount);
+                    break;
+                case "NEE":
+                    memberClassLabels.push("Non-Estonian member");
+                    memberClassData.push(sortedMemberClasses[i].memberCount);
+                    break;
+            }
+            
         }
     }
 
@@ -53,6 +70,13 @@ function generateMembersDoughnutGraph(resultsJson) {
                 display: true,
                 text: 'Member class distribution',
                 fontSize: 16
+            },
+            legend: {
+                display: true,
+                position: "top",
+                labels: {
+                    boxWidth: 20
+                }
             }
         }
     })

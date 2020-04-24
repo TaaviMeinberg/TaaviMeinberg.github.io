@@ -15,7 +15,7 @@ function darkModeOn() {
     h2Array = document.getElementsByTagName("h2");
 
     for (let i = 0; i < paragraphsArray.length; i++) {
-        if(paragraphsArray[i].classList == 0){
+        if (paragraphsArray[i].classList == 0) {
             paragraphsArray[i].style.color = "white";
         }
     }
@@ -26,6 +26,7 @@ function darkModeOn() {
 
     $("#horizontalLine").css({ "border-top": "1px solid #404040" });
     $("#darkModeButton").removeClass("btn-dark");
+    changeButtonClasses("on")
     $("#darkModeButton").addClass("btn-light");
     $("#darkModeButton").html("Light mode");
 
@@ -56,7 +57,7 @@ function darkModeOff() {
     h2Array = document.getElementsByTagName("h2");
 
     for (let i = 0; i < paragraphsArray.length; i++) {
-        if(paragraphsArray[i].classList == 0){
+        if (paragraphsArray[i].classList == 0) {
             paragraphsArray[i].style.color = "black";
         }
     }
@@ -66,9 +67,10 @@ function darkModeOff() {
     }
 
     $("#horizontalLine").css({ "border-top": "1px solid #e6e6e6" });
-    $("#darkModeButton").removeClass("btn-light");
-    $("#darkModeButton").addClass("btn-dark");
+    //$("#darkModeButton").removeClass("btn-light");
+    //$("#darkModeButton").addClass("btn-dark");
     $("#darkModeButton").html("Dark mode");
+    changeButtonClasses("off")
 
     graphsArray.forEach(graph => {
         graph.options.plugins.datalabels.color = "#666666";
@@ -86,6 +88,19 @@ function darkModeOff() {
     });
 
     localStorage.setItem("darkModeEnabled", "false");
+}
+
+function changeButtonClasses(enableDarkMode) {
+    buttonsArray = $('.btn')
+    if (enableDarkMode == "off") {
+        $('.btn').removeClass("btn-light");
+        $('.btn').addClass("btn-dark");
+    }
+    else {
+        $('.btn').removeClass("btn-dark");
+        $('.btn').addClass("btn-light");
+    }
+
 }
 
 function toggleDarkMode() {

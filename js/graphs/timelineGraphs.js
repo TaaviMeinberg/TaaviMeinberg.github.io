@@ -2,6 +2,8 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 
+//Detect screen and set width for timeline divs
+
 function getMaxValue(inputArray) {
     return Math.max.apply(Math, inputArray);
 }
@@ -12,8 +14,8 @@ function getMinValue(inputArray) {
 function getXLatestEntries(inputArray, numberOfEntries, interval) {
     let resultArray = [];
     let length = inputArray.length;
-    let index = length-1;
-    for (let i = 0; i < numberOfEntries && index >=0; i++) {
+    let index = length - 1;
+    for (let i = 0; i < numberOfEntries && index >= 0; i++) {
         resultArray.push(inputArray[index]);
         index -= interval;
     }
@@ -59,8 +61,8 @@ function generateSubsystemsTimelineGraph(metricsJson) {
             scales: {
                 yAxes: [{
                     ticks: {
-                        suggestedMax: dataMaxValue + dataMaxValue * 0.1,
-                        suggestedMin: dataMinValue - dataMinValue * 0.1
+                        suggestedMax: dataMaxValue + dataMaxValue * 0.4,
+                        suggestedMin: dataMinValue - dataMinValue * 0.2
                     }
                 }]
             },
@@ -128,8 +130,8 @@ function generateMembersTimelineGraph(metricsJson) {
             scales: {
                 yAxes: [{
                     ticks: {
-                        suggestedMax: dataMaxValue + dataMaxValue * 0.1,
-                        suggestedMin: dataMinValue - dataMinValue * 0.1
+                        suggestedMax: dataMaxValue + dataMaxValue * 0.4,
+                        suggestedMin: dataMinValue - dataMinValue * 0.2
                     }
                 }]
             },
@@ -197,8 +199,8 @@ function generateSecurityServersTimelineGraph(metricsJson) {
             scales: {
                 yAxes: [{
                     ticks: {
-                        suggestedMax: dataMaxValue + dataMaxValue * 0.1,
-                        suggestedMin: dataMinValue - dataMinValue * 0.1
+                        suggestedMax: dataMaxValue + dataMaxValue * 0.4,
+                        suggestedMin: dataMinValue - dataMinValue * 0.2
                     }
                 }]
             },
