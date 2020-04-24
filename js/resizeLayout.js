@@ -23,12 +23,12 @@ function timelineResize() {
     if (window.innerWidth < 1920) {
         $(".timelineResize").each(function () {
             $(this).removeClass();
-            $(this).addClass("timeline col-12");
+            $(this).addClass("timelineResize col-12");
         });
     } else {
         $(".timelineResize").each(function () {
             $(this).removeClass();
-            $(this).addClass("timeline col-4");
+            $(this).addClass("timelineResize col-4");
         });
     }
 }
