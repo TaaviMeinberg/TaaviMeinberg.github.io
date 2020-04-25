@@ -13,19 +13,19 @@ function generateMembersDoughnutGraph(resultsJson) {
         for (let i in sortedMemberClasses) {
             switch(sortedMemberClasses[i].memberClass){
                 case "COM":
-                    memberClassLabels.push("Commercial member");
+                    memberClassLabels.push("Commercial members");
                     memberClassData.push(sortedMemberClasses[i].memberCount);
                     break;
                 case "GOV":
-                    memberClassLabels.push("Governmental member");
+                    memberClassLabels.push("Governmental members");
                     memberClassData.push(sortedMemberClasses[i].memberCount);
                     break;
                 case "NGO":
-                    memberClassLabels.push("Non-profit member");
+                    memberClassLabels.push("Non-profit members");
                     memberClassData.push(sortedMemberClasses[i].memberCount);
                     break;
                 case "NEE":
-                    memberClassLabels.push("Non-Estonian member");
+                    memberClassLabels.push("Non-Estonian members");
                     memberClassData.push(sortedMemberClasses[i].memberCount);
                     break;
             }

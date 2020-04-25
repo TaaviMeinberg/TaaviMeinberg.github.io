@@ -47,6 +47,11 @@ function generateEnvironmentTotalsGraph(resultsJson) {
                     ticks: {
                         beginAtZero: true
                     }
+                }],
+                yAxes: [{
+                    gridLines: {
+                        display: false
+                    }
                 }]
             },
             legend: {

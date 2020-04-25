@@ -61,8 +61,11 @@ function generateSubsystemsTimelineGraph(metricsJson) {
             scales: {
                 yAxes: [{
                     ticks: {
-                        suggestedMax: dataMaxValue + dataMaxValue * 0.4,
+                        suggestedMax: dataMaxValue + dataMaxValue * 0.2,
                         suggestedMin: dataMinValue - dataMinValue * 0.2
+                    },
+                    gridLines: {
+                        display: false
                     }
                 }]
             },
@@ -130,8 +133,11 @@ function generateMembersTimelineGraph(metricsJson) {
             scales: {
                 yAxes: [{
                     ticks: {
-                        suggestedMax: dataMaxValue + dataMaxValue * 0.4,
+                        suggestedMax: dataMaxValue + dataMaxValue * 0.2,
                         suggestedMin: dataMinValue - dataMinValue * 0.2
+                    },
+                    gridLines: {
+                        display: false
                     }
                 }]
             },
@@ -199,8 +205,11 @@ function generateSecurityServersTimelineGraph(metricsJson) {
             scales: {
                 yAxes: [{
                     ticks: {
-                        suggestedMax: dataMaxValue + dataMaxValue * 0.4,
+                        suggestedMax: dataMaxValue + dataMaxValue * 0.2,
                         suggestedMin: dataMinValue - dataMinValue * 0.2
+                    },
+                    gridLines: {
+                        display: false
                     }
                 }]
             },
