@@ -4,8 +4,7 @@
 function generateEnvironmentTotalsGraph(resultsJson) {
     let environmentTotalsData = [];
 
-    // Push the specific data values from resultsJson file into a single array
-    // Each index will be a separate bar
+
     if (resultsJson != null) {
         environmentTotalsData.push(resultsJson.subsystems);
         environmentTotalsData.push(resultsJson.members);
@@ -13,20 +12,13 @@ function generateEnvironmentTotalsGraph(resultsJson) {
     }
 
     let ctx = document.getElementById('environmentTotalsBarCanvas').getContext('2d');
-
-    // Create and customize the diagram
     let environmentTotalsChart = new Chart(ctx, {
         type: 'horizontalBar',
         data: {
-            // determine the labels which are shown in the legend
-            labels: ["Subsystems", "Members", "Security Servers"], 
+            labels: ["Subsystems", "Members", "Security Servers"],
             datasets: [{
                 label: "Environment total",
-
-                // Uses the array which holds the number of subsystems, members and security servers
-                data: environmentTotalsData, 
-
-                // Visual customization for the bars. Three rgba colour values for the three bars
+                data: environmentTotalsData,
                 backgroundColor: [
                     'rgba(26, 163, 255, 0.8)',
                     'rgba(255, 99, 132, 0.8)',
@@ -40,8 +32,6 @@ function generateEnvironmentTotalsGraph(resultsJson) {
                 borderWidth: 1
             }]
         },
-
-        // further, mostly visual, customization
         options: {
             plugins: {
                 datalabels: {
@@ -74,6 +64,9 @@ function generateEnvironmentTotalsGraph(resultsJson) {
                 display: true,
                 text: 'Environment totals',
                 fontSize: 16
+            },
+            animation: {
+                duration: 0 // general animation time
             }
         }
     })

@@ -5,12 +5,11 @@ function generateMembersDoughnutGraph(resultsJson) {
     let memberClassLabels = [];
     let memberClassData = [];
 
-    // Sort the member counts so that it starts from the largest value
+
     if (resultsJson != null) {
         let sortedMemberClasses = resultsJson.memberClasses.sort(function (a, b) {
             return parseFloat(b.memberCount) - parseFloat(a.memberCount);
         })
-        // turn COM, GOV, etc into more human readable labels
         for (let i in sortedMemberClasses) {
             switch(sortedMemberClasses[i].memberClass){
                 case "COM":
@@ -78,12 +77,15 @@ function generateMembersDoughnutGraph(resultsJson) {
                 labels: {
                     boxWidth: 20
                 }
+            },
+            animation: {
+                duration: 0 // general animation time
             }
         }
     })
-    
+    graphsArray.push(membersPieChart);
+
     // Chart JS has a bug where charts are only visible after resizing the window (https://stackoverflow.com/questions/48343189/). 
     // Workaround is to update the chart manually after it's been created.
-    graphsArray.push(membersPieChart);
     setTimeout(function () { membersPieChart.update(); }, 250);
 }

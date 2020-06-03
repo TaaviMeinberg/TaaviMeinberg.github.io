@@ -2,7 +2,7 @@
 
 A simple dashboard for displaying the metrics of an X-tee environment.
 
-The **demo** can be viewed here: https://taavimeinberg.github.io/EE/ (uses sample data)
+The **demo** can be viewed here: https://taavimeinberg.github.io (uses sample data)
 
 
 

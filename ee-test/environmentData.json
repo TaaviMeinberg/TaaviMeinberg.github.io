@@ -1,24 +1,24 @@
 {
     "instanceIdentifier": "PLACEHOLDER-INSTANCE-TEST",
-    "members": 456,
-    "subsystems": 789,
-    "securityServers": 123,
+    "members": 155,
+    "subsystems": 170,
+    "securityServers": 145,
     "memberClasses": [
         {
             "memberClass": "GOV",
-            "memberCount": 40
+            "memberCount": 70
         },
         {
             "memberClass": "COM",
-            "memberCount": 45
+            "memberCount": 40
         },
         {
             "memberClass": "NGO",
-            "memberCount": 20
+            "memberCount": 30
         },
         {
             "memberClass": "NEE",
-            "memberCount": 10
+            "memberCount": 15
         }
     ],
     "date": "yyyy-mm-dd"

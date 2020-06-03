@@ -2,7 +2,8 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 
-// Get max and min values for y-axis scale 
+//Detect screen and set width for timeline divs
+
 function getMaxValue(inputArray) {
     return Math.max.apply(Math, inputArray);
 }
@@ -10,8 +11,6 @@ function getMinValue(inputArray) {
     return Math.min.apply(Math, inputArray);
 }
 
-// Get X number of entries from the data
-// This determines how many data points are shown in the timeline
 function getXLatestEntries(inputArray, numberOfEntries, interval) {
     let resultArray = [];
     let length = inputArray.length;
@@ -84,13 +83,16 @@ function generateSubsystemsTimelineGraph(metricsJson) {
                         size: 14
                     }
                 }
+            },
+            animation: {
+                duration: 0 // general animation time
             }
         }
     })
-    
+    graphsArray.push(subsystemsTimelineChart);
+
     // Chart JS has a bug where charts are only visible after resizing the window (https://stackoverflow.com/questions/48343189/). 
     // Workaround is to update the chart manually after it's been created.
-    graphsArray.push(subsystemsTimelineChart);
     setTimeout(function () { subsystemsTimelineChart.update(); }, 250);
 }
 
@@ -155,14 +157,17 @@ function generateMembersTimelineGraph(metricsJson) {
                         weight: 'bold',
                         size: 14
                     }
+                },
+                animation: {
+                    duration: 0 // general animation time
                 }
             }
         }
     })
+    graphsArray.push(membersTimelineChart);
 
     // Chart JS has a bug where charts are only visible after resizing the window (https://stackoverflow.com/questions/48343189/). 
     // Workaround is to update the chart manually after it's been created.
-    graphsArray.push(membersTimelineChart);
     setTimeout(function () { membersTimelineChart.update(); }, 250);
 }
 
@@ -228,12 +233,15 @@ function generateSecurityServersTimelineGraph(metricsJson) {
                         size: 14
                     }
                 }
+            },
+            animation: {
+                duration: 0 // general animation time
             }
         }
     })
+    graphsArray.push(securityServersTimelineChart);
 
     // Chart JS has a bug where charts are only visible after resizing the window (https://stackoverflow.com/questions/48343189/). 
     // Workaround is to update the chart manually after it's been created.
-    graphsArray.push(securityServersTimelineChart);
     setTimeout(function () { securityServersTimelineChart.update(); }, 250);
 }

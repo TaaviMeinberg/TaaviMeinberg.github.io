@@ -1,12 +1,12 @@
 {
     "instanceIdentifier": "PLACEHOLDER-INSTANCE-DEV",
-    "members": 456,
-    "subsystems": 789,
-    "securityServers": 123,
+    "members": 100,
+    "subsystems": 124,
+    "securityServers": 96,
     "memberClasses": [
         {
             "memberClass": "GOV",
-            "memberCount": 40
+            "memberCount": 35
         },
         {
             "memberClass": "COM",
@@ -14,11 +14,11 @@
         },
         {
             "memberClass": "NGO",
-            "memberCount": 20
+            "memberCount": 11
         },
         {
             "memberClass": "NEE",
-            "memberCount": 10
+            "memberCount": 9
         }
     ],
     "date": "yyyy-mm-dd"
