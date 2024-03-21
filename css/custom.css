@@ -1,0 +1,81 @@
+:root {
+    --active-btn-color: #fff;
+    --active-btn-background: #3075b5;
+    --active-btn-border: #3075b5;
+}
+
+#darkModeButton {
+    float: right;
+
+    margin-top: 10px;
+    position: sticky;
+    top: 5px;
+    right: 0px;
+    z-index: 1;
+    display: block;
+
+}
+
+#titleRow {
+    display: inline-block;
+    width: 100%;
+    margin-top: -50px;
+    margin-left: 0px;
+}
+
+.isActive {
+    color: var(--active-btn-color);
+    background-color: var(--active-btn-background);
+    border-color: var(--active-btn-border);
+}
+
+.btn-env {
+    float: left;
+
+    margin: 2px;
+    margin-top: 10px;
+    position: sticky;
+    top: 5px;
+    right: 0px;
+    z-index: 1;
+    display: block;
+    width: 80px;
+
+    &:hover {
+        color: var(--active-btn-color);
+        background-color: var(--active-btn-background);
+        border-color: var(--active-btn-border);
+    }
+
+    &:focus {
+        color: var(--active-btn-color);
+        background-color: var(--active-btn-background);
+        border-color: var(--active-btn-border);
+    }
+}
+
+.growthMetricContainer {
+    text-align: center;
+}
+
+.growthMetricNeutral {
+    font-size: 30px;
+    color: #ffd11a;
+    text-align: center;
+}
+
+.growthMetricPositive {
+    font-size: 30px;
+    color: #00cc00;
+    text-align: center;
+}
+
+.growthMetricNegative {
+    font-size: 30px;
+    color: #ff3300;
+    text-align: center;
+}
+
+.sectionHeader {
+    text-align: center;
+}
