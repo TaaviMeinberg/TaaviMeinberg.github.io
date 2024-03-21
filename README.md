@@ -7,15 +7,16 @@ The **demo** can be viewed here: https://taavimeinberg.github.io (uses sample da
 
 
 ## Feature history
-| Date       |                                                Feature |
-| ---------- | ----------------------------------------------------:  |
-| 05.07.2019 |                                        Initial release |
-| 17.07.2019 |                          Added support for history API |
-| 23.07.2019 |                                        Added dark mode |
-| 23.07.2019 |                            Added placeholder json data |
-| 01.08.2019 |                              Added growth visualization|
-| 30.01.2020 |  Added simple navigation between different environments|
-| 24.04.2020 |                             Quality of Use improvements|
+| Date       | Feature                                                                          |
+| ---------- | -------------------------------------------------------------------------------: |
+| 05.07.2019 | Initial release                                                                  |
+| 17.07.2019 | Added support for history API                                                    |
+| 23.07.2019 | Added dark mode                                                                  |
+| 23.07.2019 | Added placeholder json data                                                      |
+| 01.08.2019 | Added growth visualization                                                       |
+| 30.01.2020 | Added simple navigation between different environments                           |
+| 24.04.2020 | Quality of Use improvements                                                      |
+| 21.03.2024 | Long time no see, updated jquery and bootstrap versions with slight refacto      |
 
 ## Environment data
 
