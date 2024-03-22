@@ -1,4 +1,7 @@
 function drawDiagrams(env) {
+    //Clean array of saved graphs
+    graphsArray = [];
+    
     $.ajax({
         url: env + '/environmentData.json',
         dataType: 'json',

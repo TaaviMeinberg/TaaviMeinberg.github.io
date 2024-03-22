@@ -1,6 +1,10 @@
 /* eslint-disable for-direction */
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
+let subsystemsTimelineChart;
+let membersTimelineChart;
+let securityServersTimelineChart;
+
 
 //Detect screen and set width for timeline divs
 
@@ -22,12 +26,21 @@ function getXLatestEntries(inputArray, numberOfEntries, interval) {
     return resultArray.reverse();
 }
 
+function deleteExistingGraphs(graph){
+    if (typeof graph != "undefined"){
+        graph.destroy();
+    }
+}
+// if graphs exist, delete them before creating new ones
+
+
 function generateSubsystemsTimelineGraph(metricsJson) {
     let allMetricsDates = [];
     let allMetricsSubsystemsData = [];
     let latestDates = [];
     let latestData = [];
 
+    deleteExistingGraphs(subsystemsTimelineChart);
 
     for (let i in metricsJson) {
         allMetricsDates.push(metricsJson[i].date);
@@ -40,7 +53,7 @@ function generateSubsystemsTimelineGraph(metricsJson) {
     let dataMaxValue = getMaxValue(latestData);
     let dataMinValue = getMinValue(latestData);
     let ctx = document.getElementById('subsystemsTimelineCanvas').getContext('2d');
-    let subsystemsTimelineChart = new Chart(ctx, {
+    subsystemsTimelineChart = new Chart(ctx, {
         type: 'line',
         data: {
             labels: latestDates,
@@ -83,9 +96,6 @@ function generateSubsystemsTimelineGraph(metricsJson) {
                         size: 14
                     }
                 }
-            },
-            animation: {
-                duration: 0 // general animation time
             }
         }
     })
@@ -112,10 +122,12 @@ function generateMembersTimelineGraph(metricsJson) {
     latestDates = getXLatestEntries(allMetricsDates, 12, 1);
     latestData = getXLatestEntries(allMetricsMembersData, 12, 1);
 
+    deleteExistingGraphs(membersTimelineChart);
+
     let dataMaxValue = getMaxValue(latestData);
     let dataMinValue = getMinValue(latestData);
     let ctx = document.getElementById('membersTimelineCanvas').getContext('2d');
-    let membersTimelineChart = new Chart(ctx, {
+    membersTimelineChart = new Chart(ctx, {
         type: 'line',
         data: {
             labels: latestDates,
@@ -157,9 +169,6 @@ function generateMembersTimelineGraph(metricsJson) {
                         weight: 'bold',
                         size: 14
                     }
-                },
-                animation: {
-                    duration: 0 // general animation time
                 }
             }
         }
@@ -187,10 +196,12 @@ function generateSecurityServersTimelineGraph(metricsJson) {
     latestDates = getXLatestEntries(allMetricsDates, 12, 1);
     latestData = getXLatestEntries(allMetricsSecurityServersData, 12, 1);
 
+    deleteExistingGraphs(securityServersTimelineChart);
+
     let dataMaxValue = getMaxValue(latestData);
     let dataMinValue = getMinValue(latestData);
     let ctx = document.getElementById('securityserversTimelineCanvas').getContext('2d');
-    let securityServersTimelineChart = new Chart(ctx, {
+    securityServersTimelineChart = new Chart(ctx, {
         type: 'line',
         data: {
             labels: latestDates,
@@ -233,9 +244,6 @@ function generateSecurityServersTimelineGraph(metricsJson) {
                         size: 14
                     }
                 }
-            },
-            animation: {
-                duration: 0 // general animation time
             }
         }
     })

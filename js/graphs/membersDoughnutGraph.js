@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
+let membersPieChart
 
 function generateMembersDoughnutGraph(resultsJson) {
     let memberClassLabels = [];
@@ -11,7 +12,7 @@ function generateMembersDoughnutGraph(resultsJson) {
             return parseFloat(b.memberCount) - parseFloat(a.memberCount);
         })
         for (let i in sortedMemberClasses) {
-            switch(sortedMemberClasses[i].memberClass){
+            switch (sortedMemberClasses[i].memberClass) {
                 case "COM":
                     memberClassLabels.push("Commercial members");
                     memberClassData.push(sortedMemberClasses[i].memberCount);
@@ -29,12 +30,17 @@ function generateMembersDoughnutGraph(resultsJson) {
                     memberClassData.push(sortedMemberClasses[i].memberCount);
                     break;
             }
-            
+
         }
     }
 
+    // if graph exist, delete them before creating new ones
+    if (typeof membersPieChart != "undefined") {
+        membersPieChart.destroy();
+    }
+
     let ctx = document.getElementById('membersPieCanvas').getContext('2d');
-    let membersPieChart = new Chart(ctx, {
+    membersPieChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
             labels: memberClassLabels,
@@ -77,9 +83,6 @@ function generateMembersDoughnutGraph(resultsJson) {
                 labels: {
                     boxWidth: 20
                 }
-            },
-            animation: {
-                duration: 0 // general animation time
             }
         }
     })
