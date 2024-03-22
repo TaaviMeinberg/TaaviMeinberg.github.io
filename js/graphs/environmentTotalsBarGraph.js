@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
+let environmentTotalsChart;
 
 function generateEnvironmentTotalsGraph(resultsJson) {
     let environmentTotalsData = [];
@@ -11,8 +12,13 @@ function generateEnvironmentTotalsGraph(resultsJson) {
         environmentTotalsData.push(resultsJson.securityServers);
     }
 
+    // if graph exist, delete them before creating new ones
+    if (typeof environmentTotalsChart != "undefined"){
+        environmentTotalsChart.destroy();
+    }
+
     let ctx = document.getElementById('environmentTotalsBarCanvas').getContext('2d');
-    let environmentTotalsChart = new Chart(ctx, {
+    environmentTotalsChart = new Chart(ctx, {
         type: 'horizontalBar',
         data: {
             labels: ["Subsystems", "Members", "Security Servers"],
@@ -64,9 +70,6 @@ function generateEnvironmentTotalsGraph(resultsJson) {
                 display: true,
                 text: 'Environment totals',
                 fontSize: 16
-            },
-            animation: {
-                duration: 0 // general animation time
             }
         }
     })
