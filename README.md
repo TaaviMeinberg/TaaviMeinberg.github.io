@@ -17,6 +17,7 @@ The **demo** can be viewed here: https://taavimeinberg.github.io (uses sample da
 | 30.01.2020 | Added simple navigation between different environments                           |
 | 24.04.2020 | Quality of Use improvements                                                      |
 | 21.03.2024 | Long time no see, updated jquery and bootstrap versions with slight refacto      |
+| 12.06.2024 | ChartJS updated to V3                                                            |
 
 ## Environment data
 
