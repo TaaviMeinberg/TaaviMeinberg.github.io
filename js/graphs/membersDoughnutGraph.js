@@ -70,13 +70,16 @@ function generateMembersDoughnutGraph(resultsJson) {
                         size: 20
                     },
                     offset: 15
+                },
+                title: {
+                    display: true,
+                    text: 'Member class distribution',
+                    font:{
+                        size: 16
+                    }
                 }
             },
-            title: {
-                display: true,
-                text: 'Member class distribution',
-                fontSize: 16
-            },
+            responsive: false,
             legend: {
                 display: true,
                 position: "top",
