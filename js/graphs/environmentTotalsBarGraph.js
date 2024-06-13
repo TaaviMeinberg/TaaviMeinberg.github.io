@@ -38,6 +38,7 @@ function generateEnvironmentTotalsGraph(resultsJson) {
                 borderWidth: 1
             }]
         },
+        plugins: [ChartDataLabels],
         options: {
             indexAxis: 'y',
             plugins: {
@@ -60,12 +61,12 @@ function generateEnvironmentTotalsGraph(resultsJson) {
                 }
             },
             scales: {
-                xAxes: {
+                x: {
                     ticks: {
                         beginAtZero: true
                     }
                 },
-                yAxes: {
+                y: {
                     grid: {
                         display: false
                     }

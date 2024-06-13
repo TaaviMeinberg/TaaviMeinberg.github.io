@@ -65,9 +65,10 @@ function generateSubsystemsTimelineGraph(metricsJson) {
                 backgroundColor: "rgba(26, 163, 255, 0.2)"
             }]
         },
+        plugins: [ChartDataLabels],
         options: {
             scales: {
-                yAxes: {
+                y: {
                     suggestedMax: dataMaxValue + dataMaxValue * 0.2,
                     suggestedMin: dataMinValue - dataMinValue * 0.2,
                     grid: {
@@ -134,9 +135,10 @@ function generateMembersTimelineGraph(metricsJson) {
                 backgroundColor: "rgba(255, 99, 132, 0.2)"
             }]
         },
+        plugins: [ChartDataLabels],
         options: {
             scales: {
-                yAxes: {
+                y: {
                     suggestedMax: dataMaxValue + dataMaxValue * 0.2,
                     suggestedMin: dataMinValue - dataMinValue * 0.2,
                     grid: {
@@ -203,9 +205,10 @@ function generateSecurityServersTimelineGraph(metricsJson) {
                 backgroundColor: "rgba(255, 206, 86, 0.2)"
             }]
         },
+        plugins: [ChartDataLabels],
         options: {
             scales: {
-                yAxes: {
+                y: {
                     suggestedMax: dataMaxValue + dataMaxValue * 0.2,
                     suggestedMin: dataMinValue - dataMinValue * 0.2,
                     grid: {

@@ -45,7 +45,7 @@ function generateMembersDoughnutGraph(resultsJson) {
         data: {
             labels: memberClassLabels,
             datasets: [{
-                label: 'Organization distribution',
+                label: 'Organization count',
                 data: memberClassData,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.8)',
@@ -62,6 +62,7 @@ function generateMembersDoughnutGraph(resultsJson) {
                 borderWidth: 1
             }]
         },
+        plugins: [ChartDataLabels],
         options: {
             plugins: {
                 datalabels: {

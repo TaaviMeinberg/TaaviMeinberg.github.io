@@ -108,15 +108,15 @@ function chartsDarkmodeToggle(arrayOfGraphs, toggleOn) {
             graph.options.plugins.title.color = "white";
 
             if (graph.options.type == "bar") {
-                graph.options.scales["xAxes"].ticks.color = "white";
-                graph.options.scales["xAxes"].grid.color = "#404040";
-                graph.options.scales["yAxes"].ticks.color = "white";
-                graph.options.scales["yAxes"].grid.color = "#404040";
+                graph.options.scales["x"].ticks.color = "white";
+                graph.options.scales["x"].grid.color = "#404040";
+                graph.options.scales["y"].ticks.color = "white";
+                graph.options.scales["y"].grid.color = "#404040";
 
             } else if (graph.options.type == "line") {
                 graph.options.scales["x"].ticks.color = "white";
                 graph.options.scales["x"].grid.color = "#404040";
-                graph.options.scales["yAxes"].ticks.color = "white";
+                graph.options.scales["y"].ticks.color = "white";
             }
         } else {
             // DARKMODE OFF, make text dark coloured
@@ -125,15 +125,15 @@ function chartsDarkmodeToggle(arrayOfGraphs, toggleOn) {
             graph.options.plugins.title.color = "#666666";
 
             if (graph.options.type == "bar") {
-                graph.options.scales["xAxes"].ticks.color = "#737373";
-                graph.options.scales["xAxes"].grid.color = "#e6e6e6";
-                graph.options.scales["yAxes"].ticks.color = "#737373";
-                graph.options.scales["yAxes"].grid.color = "#e6e6e6";
+                graph.options.scales["x"].ticks.color = "#737373";
+                graph.options.scales["x"].grid.color = "#e6e6e6";
+                graph.options.scales["y"].ticks.color = "#737373";
+                graph.options.scales["y"].grid.color = "#e6e6e6";
 
             } else if (graph.options.type == "line") {
                 graph.options.scales["x"].ticks.color = "#737373";
                 graph.options.scales["x"].grid.color = "#e6e6e6";
-                graph.options.scales["yAxes"].ticks.color = "#737373";
+                graph.options.scales["y"].ticks.color = "#737373";
             }
         }
         graph.update();
