@@ -65,26 +65,15 @@ function generateSubsystemsTimelineGraph(metricsJson) {
                 backgroundColor: "rgba(26, 163, 255, 0.2)"
             }]
         },
+        plugins: [ChartDataLabels],
         options: {
-            title: {
-                display: true,
-                text: 'Subsystems timeline',
-                fontSize: 16
-            },
             scales: {
-                yAxes: [{
-                    ticks: {
-                        suggestedMax: dataMaxValue + dataMaxValue * 0.2,
-                        suggestedMin: dataMinValue - dataMinValue * 0.2
-                    },
-                    gridLines: {
+                y: {
+                    suggestedMax: dataMaxValue + dataMaxValue * 0.2,
+                    suggestedMin: dataMinValue - dataMinValue * 0.2,
+                    grid: {
                         display: false
                     }
-                }]
-            },
-            legend: {
-                labels: {
-                    fontSize: 14
                 }
             },
             plugins: {
@@ -94,6 +83,13 @@ function generateSubsystemsTimelineGraph(metricsJson) {
                     font: {
                         weight: 'bold',
                         size: 14
+                    }
+                },
+                title: {
+                    display: true,
+                    text: 'Subsystems timeline',
+                    font: {
+                        size: 16
                     }
                 }
             }
@@ -139,26 +135,15 @@ function generateMembersTimelineGraph(metricsJson) {
                 backgroundColor: "rgba(255, 99, 132, 0.2)"
             }]
         },
+        plugins: [ChartDataLabels],
         options: {
-            title: {
-                display: true,
-                text: 'Members timeline',
-                fontSize: 16
-            },
             scales: {
-                yAxes: [{
-                    ticks: {
-                        suggestedMax: dataMaxValue + dataMaxValue * 0.2,
-                        suggestedMin: dataMinValue - dataMinValue * 0.2
-                    },
-                    gridLines: {
+                y: {
+                    suggestedMax: dataMaxValue + dataMaxValue * 0.2,
+                    suggestedMin: dataMinValue - dataMinValue * 0.2,
+                    grid: {
                         display: false
                     }
-                }]
-            },
-            legend: {
-                labels: {
-                    fontSize: 14
                 }
             },
             plugins: {
@@ -168,6 +153,13 @@ function generateMembersTimelineGraph(metricsJson) {
                     font: {
                         weight: 'bold',
                         size: 14
+                    }
+                },
+                title: {
+                    display: true,
+                    text: 'Members timeline',
+                    font: {
+                        size: 16
                     }
                 }
             }
@@ -213,26 +205,15 @@ function generateSecurityServersTimelineGraph(metricsJson) {
                 backgroundColor: "rgba(255, 206, 86, 0.2)"
             }]
         },
+        plugins: [ChartDataLabels],
         options: {
-            title: {
-                display: true,
-                text: 'Security Servers timeline',
-                fontSize: 16
-            },
             scales: {
-                yAxes: [{
-                    ticks: {
-                        suggestedMax: dataMaxValue + dataMaxValue * 0.2,
-                        suggestedMin: dataMinValue - dataMinValue * 0.2
-                    },
-                    gridLines: {
+                y: {
+                    suggestedMax: dataMaxValue + dataMaxValue * 0.2,
+                    suggestedMin: dataMinValue - dataMinValue * 0.2,
+                    grid: {
                         display: false
                     }
-                }]
-            },
-            legend: {
-                labels: {
-                    fontSize: 14
                 }
             },
             plugins: {
@@ -242,6 +223,13 @@ function generateSecurityServersTimelineGraph(metricsJson) {
                     font: {
                         weight: 'bold',
                         size: 14
+                    }
+                },
+                title: {
+                    display: true,
+                    text: 'Security Servers timeline',
+                    font: {
+                        size: 16
                     }
                 }
             }

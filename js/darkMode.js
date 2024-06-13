@@ -30,20 +30,7 @@ function darkModeOn() {
     $("#darkModeButton").addClass("btn-light");
     $("#darkModeButton").html("Light mode");
 
-    graphsArray.forEach(graph => {
-        graph.options.plugins.datalabels.color = "white";
-        graph.options.legend.labels.fontColor = "white";
-        graph.options.title.fontColor = "white";
-
-        // if graph's scales property uses x and y axis
-        if (typeof graph.options.scales !== 'undefined' && graph.options.scales !== 'undefined') {
-            graph.options.scales.yAxes[0].ticks.minor.fontColor = "white";
-            graph.options.scales.yAxes[0].gridLines.color = "#404040";
-            graph.options.scales.xAxes[0].ticks.minor.fontColor = "white";
-            graph.options.scales.xAxes[0].gridLines.color = "#404040";
-        }
-        graph.update();
-    });
+    chartsDarkmodeToggle(graphsArray, true);
 
     localStorage.setItem("darkModeEnabled", "true");
 }
@@ -67,28 +54,16 @@ function darkModeOff() {
     }
 
     $("#horizontalLine").css({ "border-top": "1px solid #e6e6e6" });
-    //$("#darkModeButton").removeClass("btn-light");
-    //$("#darkModeButton").addClass("btn-dark");
     $("#darkModeButton").html("Dark mode");
-    changeButtonClasses("off")
 
-    graphsArray.forEach(graph => {
-        graph.options.plugins.datalabels.color = "#666666";
-        graph.options.legend.labels.fontColor = "#666666";
-        graph.options.title.fontColor = "#666666";
+    changeButtonClasses("off");
 
-        // if graph's scales property uses x and y axis
-        if (typeof graph.options.scales !== 'undefined' && graph.options.scales !== 'undefined') {
-            graph.options.scales.yAxes[0].ticks.minor.fontColor = "#737373";
-            graph.options.scales.yAxes[0].gridLines.color = "#e6e6e6";
-            graph.options.scales.xAxes[0].ticks.minor.fontColor = "#737373";
-            graph.options.scales.xAxes[0].gridLines.color = "#e6e6e6";
-        }
-        graph.update();
-    });
+    chartsDarkmodeToggle(graphsArray, false);
 
     localStorage.setItem("darkModeEnabled", "false");
 }
+
+// HELPERS
 
 function changeButtonClasses(enableDarkMode) {
     buttonsArray = $('.btn')
@@ -121,4 +96,46 @@ function checkDarkMode() {
     } else if (darkModeEnabledValue == "false") {
         darkModeOff();
     }
+}
+
+function chartsDarkmodeToggle(arrayOfGraphs, toggleOn) {
+    arrayOfGraphs.forEach(graph => {
+
+        if (toggleOn == true) {
+            // DARKMODE ON, make text light coloured
+            graph.options.plugins.datalabels.color = "white";
+            graph.options.plugins.legend.labels.color = "white";
+            graph.options.plugins.title.color = "white";
+
+            if (graph.options.type == "bar") {
+                graph.options.scales["x"].ticks.color = "white";
+                graph.options.scales["x"].grid.color = "#404040";
+                graph.options.scales["y"].ticks.color = "white";
+                graph.options.scales["y"].grid.color = "#404040";
+
+            } else if (graph.options.type == "line") {
+                graph.options.scales["x"].ticks.color = "white";
+                graph.options.scales["x"].grid.color = "#404040";
+                graph.options.scales["y"].ticks.color = "white";
+            }
+        } else {
+            // DARKMODE OFF, make text dark coloured
+            graph.options.plugins.datalabels.color = "#666666";
+            graph.options.plugins.legend.labels.color = "#666666";
+            graph.options.plugins.title.color = "#666666";
+
+            if (graph.options.type == "bar") {
+                graph.options.scales["x"].ticks.color = "#737373";
+                graph.options.scales["x"].grid.color = "#e6e6e6";
+                graph.options.scales["y"].ticks.color = "#737373";
+                graph.options.scales["y"].grid.color = "#e6e6e6";
+
+            } else if (graph.options.type == "line") {
+                graph.options.scales["x"].ticks.color = "#737373";
+                graph.options.scales["x"].grid.color = "#e6e6e6";
+                graph.options.scales["y"].ticks.color = "#737373";
+            }
+        }
+        graph.update();
+    });
 }

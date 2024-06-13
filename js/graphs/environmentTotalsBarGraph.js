@@ -19,7 +19,7 @@ function generateEnvironmentTotalsGraph(resultsJson) {
 
     let ctx = document.getElementById('environmentTotalsBarCanvas').getContext('2d');
     environmentTotalsChart = new Chart(ctx, {
-        type: 'horizontalBar',
+        type: 'bar',
         data: {
             labels: ["Subsystems", "Members", "Security Servers"],
             datasets: [{
@@ -38,7 +38,9 @@ function generateEnvironmentTotalsGraph(resultsJson) {
                 borderWidth: 1
             }]
         },
+        plugins: [ChartDataLabels],
         options: {
+            indexAxis: 'y',
             plugins: {
                 datalabels: {
                     font: {
@@ -46,30 +48,29 @@ function generateEnvironmentTotalsGraph(resultsJson) {
                         size: 20
                     },
                     clip: true
+                },
+                title: {
+                    display: true,
+                    text: 'Environment totals',
+                    font:{
+                        size: 16
+                    }
+                },
+                legend: {
+                    display: false
                 }
             },
             scales: {
-                xAxes: [{
+                x: {
                     ticks: {
                         beginAtZero: true
                     }
-                }],
-                yAxes: [{
-                    gridLines: {
+                },
+                y: {
+                    grid: {
                         display: false
                     }
-                }]
-            },
-            legend: {
-                display: false,
-                labels: {
-                    fontSize: 18
                 }
-            },
-            title: {
-                display: true,
-                text: 'Environment totals',
-                fontSize: 16
             }
         }
     })
