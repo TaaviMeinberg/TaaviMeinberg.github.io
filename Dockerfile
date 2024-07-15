@@ -10,7 +10,8 @@ RUN  apt-get update \
 
 RUN chmod u+x /opt/data-collection/collectData.sh
 
-RUN /opt/data-collection/collectData.sh /usr/local/apache2/htdocs
+#Execute collectData.sh with destination htdocs
+CMD /opt/data-collection/collectData.sh /usr/local/apache2/htdocs
 
 #TODO add systemd service/timer stuff for updating data
 #TODO refactor collectData.sh to be more location agnostic
