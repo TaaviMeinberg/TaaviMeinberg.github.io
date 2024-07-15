@@ -1,10 +1,14 @@
 services:
   httpd:
     container_name: stats-web
-    image: 'httpd:2.4'
+    image: httpd:2.4
     ports:
-      - '8080:80'
+      - 8080:80
     volumes:
-      - './frontend:/usr/local/apache2/htdocs/'
-      - './data-collection:/opt/data-collection'
-    
+      - httpd_docs:/usr/local/apache2/htdocs/
+      - ./frontend:/usr/local/apache2/htdocs/
+      - ./data-collection:/opt/data-collection
+    # Can I reference these volumes in another container?
+
+volumes:
+  httpd_docs:
