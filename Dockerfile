@@ -1,17 +1,16 @@
 FROM httpd:2.4
 
-COPY . /usr/local/apache2/htdocs/
-
-RUN mv /usr/local/apache2/htdocs/data-collection /opt/
-
 RUN  apt-get update \
   && apt-get install -y wget \
   && rm -rf /var/lib/apt/lists/*
 
-RUN chmod u+x /opt/data-collection/collectData.sh
+COPY ./frontend/. /usr/local/apache2/htdocs/
 
-#Execute collectData.sh with destination htdocs
-CMD /opt/data-collection/collectData.sh /usr/local/apache2/htdocs
+COPY ./data-collection /opt/data-collection/
 
-#TODO add systemd service/timer stuff for updating data
-#TODO refactor collectData.sh to be more location agnostic
+RUN chmod u+x /opt/data-collection/dataCollection.sh
+
+#Execute dataCollection.sh with destination htdocs
+RUN /opt/data-collection/dataCollection.sh /usr/local/apache2/htdocs
+
+#TODO refactor dataCollection.sh to be more location agnostic
