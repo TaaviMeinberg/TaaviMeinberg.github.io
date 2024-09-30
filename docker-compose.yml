@@ -1,14 +1,23 @@
 services:
-  httpd:
+  httpd_container:
     container_name: stats-web
-    image: httpd:2.4
+    #image: httpd:2.4
+    build: ./
     ports:
       - 8080:80
     volumes:
-      - httpd_docs:/usr/local/apache2/htdocs/
-      - ./frontend:/usr/local/apache2/htdocs/
-      - ./data-collection:/opt/data-collection
-    # Can I reference these volumes in another container?
+      - httpd_docs:/usr/local/apache2/htdocs/  # Shared volume
+    # Note: httpd-foreground below lets the web server keep running. Otherwise the container just exits
+    command: httpd-foreground
 
+  cron_container:
+    container_name: dataCollector
+    image: alpine
+    volumes:
+      - httpd_docs:/httpd_docs  # This shares the same volume
+      - ./data-collection:/opt/data-collection
+    command: sh -c "chmod u+x /opt/data-collection/dataCollection.sh &&
+                    /opt/data-collection/dataCollection.sh /httpd_docs &&
+                    crond -f"
 volumes:
   httpd_docs:
