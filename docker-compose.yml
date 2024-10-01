@@ -7,6 +7,7 @@ services:
       - 8080:80
     volumes:
       - httpd_docs:/usr/local/apache2/htdocs/  # Shared volume
+      #Shared volume should only be used for data, which means separate subfolder which means refactor structure
     # Note: httpd-foreground below lets the web server keep running. Otherwise the container just exits
     command: httpd-foreground
 
