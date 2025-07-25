@@ -18,6 +18,7 @@ services:
       - httpd_docs:/httpd_docs  # This shares the same volume
       - ./data-collection:/opt/data-collection
     command: sh -c "chmod u+x /opt/data-collection/dataCollection.sh &&
+                    cp /opt/data-collection/dataCollectionCron /etc/crontabs/root &&
                     /opt/data-collection/dataCollection.sh /httpd_docs &&
                     crond -f"
 volumes:
