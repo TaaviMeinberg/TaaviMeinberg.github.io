@@ -1,11 +1,11 @@
 services:
   httpd_container:
     container_name: stats-web
-    #image: httpd:2.4
-    build: ./
+    image: httpd:2.4
     ports:
       - 8080:80
     volumes:
+      - ./frontend:/usr/local/apache2/htdocs/
       - httpd_docs:/usr/local/apache2/htdocs/  # Shared volume
       #Shared volume should only be used for data, which means separate subfolder which means refactor structure
     # Note: httpd-foreground below lets the web server keep running. Otherwise the container just exits
