@@ -3,7 +3,7 @@ function drawDiagrams(env) {
     graphsArray = [];
     
     $.ajax({
-        url: env + '/environmentData.json',
+        url: '/data/' + env + '/environmentData.json',
         dataType: 'json',
         success: function (resultsJson) {
             getDateAndInstance(resultsJson);
@@ -13,7 +13,7 @@ function drawDiagrams(env) {
     });
 
     $.ajax({
-        url: env + '/history.json',
+        url: '/data/' + env + '/history.json',
         dataType: 'json',
         success: function (historyJson) {
             generateSubsystemsTimelineGraph(historyJson);

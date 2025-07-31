@@ -1,1 +1,1 @@
-0 4 * * * /opt/data-collection/dataCollection.sh /httpd_docs
+* * * * * /opt/data-collection/dataCollection.sh /usr/local/apache2/htdocs/data

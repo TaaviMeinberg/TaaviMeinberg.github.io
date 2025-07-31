@@ -5,21 +5,25 @@ services:
     ports:
       - 8080:80
     volumes:
-      - ./frontend:/usr/local/apache2/htdocs/
-      - httpd_docs:/usr/local/apache2/htdocs/  # Shared volume
-      #Shared volume should only be used for data, which means separate subfolder which means refactor structure
+    # - ./frontend/:/usr/local/apache2/htdocs/
+      - ./frontend/:/opt/frontend
+      - dataVolume:/usr/local/apache2/htdocs/data
+      # Shared volume should only be used for data, which means separate subfolder which means refactor structure
     # Note: httpd-foreground below lets the web server keep running. Otherwise the container just exits
-    command: httpd-foreground
+    command: sh -c "cp -r /opt/frontend/* /usr/local/apache2/htdocs &&
+                    httpd-foreground"
 
   cron_container:
     container_name: dataCollector
     image: alpine
     volumes:
-      - httpd_docs:/httpd_docs  # This shares the same volume
+      - dataVolume:/usr/local/apache2/htdocs/data # This shares the same volume 
+      - ./data:/opt/data-collection/data
       - ./data-collection:/opt/data-collection
     command: sh -c "chmod u+x /opt/data-collection/dataCollection.sh &&
                     cp /opt/data-collection/dataCollectionCron /etc/crontabs/root &&
-                    /opt/data-collection/dataCollection.sh /httpd_docs &&
+                    cp -r /opt/data-collection/data/* /usr/local/apache2/htdocs/data &&
+                    /opt/data-collection/dataCollection.sh /usr/local/apache2/htdocs/data &&
                     crond -f"
 volumes:
-  httpd_docs:
+  dataVolume:

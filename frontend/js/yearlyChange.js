@@ -34,7 +34,7 @@ function getCurrentValue(currentDataJson, metric) {
 
 function displayYearlyChange(env, historyJson) {
     $.ajax({
-        url: env+'/environmentData.json',
+        url: '/data/' + env+'/environmentData.json',
         dataType: 'json',
         success: function (environmentData) {
             let currentYear = new Date().getFullYear();
