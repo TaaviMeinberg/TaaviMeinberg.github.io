@@ -1,1 +1,1 @@
-* * * * * /opt/data-collection/dataCollection.sh /usr/local/apache2/htdocs/data
+0 2 * * * /opt/data-collection/dataCollection.sh /usr/local/apache2/htdocs/data

@@ -5,7 +5,6 @@ services:
     ports:
       - 8080:80
     volumes:
-    # - ./frontend/:/usr/local/apache2/htdocs/
       - ./frontend/:/opt/frontend
       - dataVolume:/usr/local/apache2/htdocs/data
       # Shared volume should only be used for data, which means separate subfolder which means refactor structure
@@ -14,15 +13,15 @@ services:
                     httpd-foreground"
 
   cron_container:
-    container_name: dataCollector
+    container_name: data-collector
     image: alpine
     volumes:
       - dataVolume:/usr/local/apache2/htdocs/data # This shares the same volume 
-      - ./data:/opt/data-collection/data
       - ./data-collection:/opt/data-collection
+      - ./data:/opt/data
     command: sh -c "chmod u+x /opt/data-collection/dataCollection.sh &&
                     cp /opt/data-collection/dataCollectionCron /etc/crontabs/root &&
-                    cp -r /opt/data-collection/data/* /usr/local/apache2/htdocs/data &&
+                    cp -r /opt/data/* /usr/local/apache2/htdocs/data &&
                     /opt/data-collection/dataCollection.sh /usr/local/apache2/htdocs/data &&
                     crond -f"
 volumes:

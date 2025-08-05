@@ -19,11 +19,19 @@ The **demo** can be viewed here: https://taavimeinberg.github.io (uses sample da
 | 21.03.2024 | Long time no see, updated jquery and bootstrap versions with slight refacto      |
 | 12.06.2024 | ChartJS updated to V3                                                            |
 | 13.06.2024 | ChartJS updated to V4                                                            |
+| 31.07.2024 | ChartJS updated to V4.5                                                          |
+| 31.07.2024 | Structure change for docker support                                              |
 
 ## Environment data
 
-Data for each environment is read from the environmentData.json and history-${env}.json files which are located in the same folder as the specific environment's index.html file. By default, they contain placeholder data.
+Data for each environment is read from the environmentData.json and history.json files, which are located in the /data folder. By default, they contain placeholder data.
 
 These files should be updated and overwritten using the: X-Road Simple Stats Collector script and the history API:
 - [X-Road Simple Stats Collector ](https://github.com/petkivim/x-road-simple-stats-collector)
 - [History API](https://app.swaggerhub.com/apis-docs/NIIS/x-road-statistics/1.0.0#/)
+
+## Running the containers
+
+The containers can be ran using `docker compose up` command. This creates two containers:
+- **stats-web** which uses static HTML, JS and CSS to display the data.
+- **data-collector**, which runs a cron job once a day (at 02:00 by default) to update the environmental data using wget.
